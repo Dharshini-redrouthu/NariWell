@@ -2,14 +2,30 @@ from flask import Flask, request, jsonify
 import pandas as pd
 import joblib
 import numpy as np
+import requests
+from io import BytesIO
 
 app = Flask(__name__)
 
-# Load trained model & scaler
-model = joblib.load("pcos_model.pkl")
-scaler = joblib.load("scaler.pkl")
+# -----------------------------
+# S3 URLs for your models
+# -----------------------------
+MODEL_URL = "https://nariwell-ml-models.s3.ap-south-1.amazonaws.com/pcos_model.pkl"
+SCALER_URL = "https://nariwell-ml-models.s3.ap-south-1.amazonaws.com/scaler.pkl"
 
-# Expected features
+def load_from_s3(url):
+    """Load a joblib object directly from S3 URL"""
+    response = requests.get(url)
+    response.raise_for_status()
+    return joblib.load(BytesIO(response.content))
+
+# Load models from S3
+model = load_from_s3(MODEL_URL)
+scaler = load_from_s3(SCALER_URL)
+
+# -----------------------------
+# Features and scoring setup
+# -----------------------------
 EXPECTED_FEATURES = [
     "Period Length","Cycle Length","Age","hirsutism_score",
     "beta_HCG_mean","AMH","City","Overweight",
@@ -20,7 +36,6 @@ EXPECTED_FEATURES = [
     "canned food often","relocated city"
 ]
 
-# Feature weights for DSA scoring (dominates for realistic predictions)
 FEATURE_WEIGHTS = {
     "irregular or missed periods": 0.25,
     "hirsutism_score": 0.25,
@@ -29,19 +44,14 @@ FEATURE_WEIGHTS = {
     "Overweight": 0.10
 }
 
-# Adjusted min/max for percentile normalization
-PROB_MIN = 0.05  # low bound for normal patients
-PROB_MAX = 0.95  # high bound for high-risk patients
+PROB_MIN = 0.05
+PROB_MAX = 0.95
 
-@app.route("/")
-def home():
-    return "NariWell PCOS Risk Prediction API is running."
-
+# -----------------------------
+# Helper functions
+# -----------------------------
 def feature_score(data):
-    """
-    Weighted sum of key features with min-max normalization.
-    Returns a value in [0,1].
-    """
+    """Weighted sum of key features with min-max normalization."""
     feature_ranges = {
         "irregular or missed periods": (0, 2),
         "hirsutism_score": (0, 2),
@@ -56,11 +66,18 @@ def feature_score(data):
         x_norm = (x - min_val) / (max_val - min_val)
         x_norm = min(max(x_norm, 0), 1)
         score += x_norm * w
-    return score  # in 0-1
+    return score
 
 def sigmoid(x, k=6):
-    """Optional sigmoid scaling to spread probabilities"""
+    """Sigmoid scaling to spread probabilities."""
     return 1 / (1 + np.exp(-k*(x - 0.5)))
+
+# -----------------------------
+# Routes
+# -----------------------------
+@app.route("/")
+def home():
+    return "NariWell PCOS Risk Prediction API is running."
 
 @app.route("/predict", methods=["POST"])
 def predict():
@@ -92,7 +109,7 @@ def predict():
         final_prob = (combined_prob - PROB_MIN) / (PROB_MAX - PROB_MIN)
         final_prob = min(max(final_prob, 0), 1)
 
-        # Sigmoid scaling to spread probabilities
+        # Sigmoid scaling
         final_prob = sigmoid(final_prob)
 
         # Risk thresholds
@@ -112,5 +129,6 @@ def predict():
     except Exception as e:
         return jsonify({"error": str(e)}), 400
 
+# -----------------------------
 if __name__ == "__main__":
     app.run(debug=True)
