@@ -79,3 +79,4 @@ __pypackages__/
 # Ignore environment files (optional)
 # -------------------------
 .env
+*.pkl
