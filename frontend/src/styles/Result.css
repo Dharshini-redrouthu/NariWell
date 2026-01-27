@@ -1,0 +1,49 @@
+.result-container {
+  text-align: center;
+  padding: 2rem;
+}
+
+.result-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(
+    90deg,
+    #ec4899,
+    #8b5cf6,
+    #6366f1,
+    #3b82f6
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.result-card {
+  margin-top: 2rem;
+  padding: 2rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  animation: popIn 0.6s ease;
+}
+
+.result-value {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.confidence {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

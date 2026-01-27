@@ -1,0 +1,11 @@
+.risk-card {
+  background: #fff5f6;
+  border-radius: 16px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.risk-card h1 {
+  color: #b23a48;
+}

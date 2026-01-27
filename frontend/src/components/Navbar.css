@@ -1,0 +1,58 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 36px;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  height: 36px;
+}
+
+.brand-text {
+  font-size: 20px;
+  font-weight: 800;
+  background: linear-gradient(
+    90deg,
+    #ec4899,
+    #a855f7,
+    #6366f1,
+    #3b82f6
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.nav-links a {
+  margin-left: 20px;
+  font-weight: 600;
+  color: white;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #ec4899, #6366f1);
+  left: 0;
+  bottom: -6px;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}

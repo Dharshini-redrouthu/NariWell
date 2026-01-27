@@ -1,0 +1,23 @@
+.page-wrapper {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.page-content {
+  width: 100%;
+  max-width: 1200px;
+  padding: 40px 24px;
+  color: #1f2937;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .page-content {
+    padding: 24px 16px;
+  }
+}
