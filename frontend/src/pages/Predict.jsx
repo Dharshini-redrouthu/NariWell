@@ -1,3 +1,4 @@
+// frontend/src/pages/Predict.jsx
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import PageWrapper from "../components/PageWrapper";
@@ -47,8 +48,7 @@ export default function Predict() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    wakeUpML(); // Wake ML API
-    fetch("https://nariwell-backend.onrender.com/"); // Wake backend
+    wakeUpML();
   }, []);
 
   const handleChange = (e) => {
@@ -63,6 +63,7 @@ export default function Predict() {
 
     setLoading(true);
     try {
+      // convert all values to numbers for backend
       const numericForm = Object.fromEntries(
         Object.entries(form).map(([k, v]) => [k, Number(v)])
       );
@@ -81,7 +82,6 @@ export default function Predict() {
     <PageWrapper>
       <div className="predict-container">
         <h1>PCOS Risk Assessment</h1>
-
         <form className="predict-form" onSubmit={handleSubmit}>
           {Object.keys(form).map((key) => (
             <div className="field" key={key}>
@@ -108,7 +108,6 @@ export default function Predict() {
               )}
             </div>
           ))}
-
           <button
             type="submit"
             disabled={!allFilled || loading}

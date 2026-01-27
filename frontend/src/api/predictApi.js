@@ -1,6 +1,7 @@
+// frontend/src/api/predictApi.js
 export async function predictPCOS(formData) {
   const response = await fetch(
-    "https://nariwell-backend.onrender.com/api/predict", 
+    "https://nariwell-backend.onrender.com/api/predict", // deployed backend
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },

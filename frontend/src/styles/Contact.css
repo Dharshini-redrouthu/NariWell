@@ -1,0 +1,123 @@
+/* ================================
+   Contact Page Container
+================================ */
+.contact-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+  position: relative;
+  overflow: visible;
+}
+
+/* ================================
+   Main Heading (Gradient Text)
+================================ */
+.contact-container h1 {
+  font-size: 40px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  background: linear-gradient(90deg, #ec4899, #8b5cf6, #6366f1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ================================
+   Heart Emoji (VISIBLE FIX)
+================================ */
+.heart {
+  background: none !important;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  color: #ec4899;
+  font-size: 1em;
+  margin-left: 6px;
+  display: inline-block;
+  vertical-align: middle;
+  animation: pulse 1.8s infinite ease-in-out;
+}
+
+/* Soft heartbeat animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ================================
+   Subtitle
+================================ */
+.contact-subtitle {
+  font-size: 16px;
+  color: #6b7280;
+  margin-bottom: 40px;
+}
+
+/* ================================
+   Glass Card
+================================ */
+.contact-card {
+  max-width: 420px;
+  margin: auto;
+  padding: 35px 30px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* ================================
+   Card Heading
+================================ */
+.contact-card h3 {
+  font-size: 22px;
+  color: #4c1d95; /* deep purple */
+  margin-bottom: 12px;
+}
+
+/* ================================
+   Email Link
+================================ */
+.contact-card a {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 600;
+  color: #6366f1;
+  text-decoration: none;
+  margin-bottom: 14px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.contact-card a:hover {
+  color: #ec4899;
+  transform: scale(1.05);
+}
+
+/* ================================
+   Small Note
+================================ */
+.contact-note {
+  font-size: 14px;
+  color: #6b7280;
+  margin-top: 10px;
+}
+
+/* ================================
+   Mobile Responsive
+================================ */
+@media (max-width: 600px) {
+  .contact-container h1 {
+    font-size: 32px;
+  }
+
+  .contact-card {
+    padding: 28px 20px;
+  }
+}

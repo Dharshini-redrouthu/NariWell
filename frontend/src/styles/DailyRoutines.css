@@ -1,0 +1,66 @@
+.daily-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.daily-container h1 {
+  font-size: 38px;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #ec4899, #6366f1, #3b82f6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #4b5563;
+  margin-bottom: 40px;
+}
+
+.routine-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+}
+
+.routine-card {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 24px;
+  padding: 25px 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.35s ease;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+}
+
+.routine-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 20px 45px rgba(99, 102, 241, 0.25);
+}
+
+.routine-card img {
+  width: 120px;
+  height: auto;
+  margin-bottom: 15px;
+  transition: transform 0.35s ease;
+}
+
+.routine-card:hover img {
+  transform: scale(1.1) rotate(-2deg);
+}
+
+.routine-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 6px;
+}
+
+.routine-card p {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.5;
+}

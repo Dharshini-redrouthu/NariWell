@@ -1,18 +1,18 @@
 import { Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
-import { activateServices } from "./api/mlHealthCheck";
+import { wakeUpML } from "./api/mlHealthCheck";
 
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Predict from "./pages/Predict";
 import Result from "./pages/Result";
 import DailyRoutines from "./pages/DailyRoutines";
-import PcosSymptoms from "./pages/PcosSymptoms.jsx";
+import PcosSymptoms from "./pages/PcosSymptoms";
 import Contact from "./pages/Contact";
 
 export default function App() {
   useEffect(() => {
-    activateServices();
+    wakeUpML(); // call once on app load
   }, []);
 
   return (
