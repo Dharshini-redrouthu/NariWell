@@ -1,58 +1,212 @@
+/* ================= ULTIMATE PREMIUM NAVBAR ================= */
+
 .navbar {
+
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 999;
+
+  width: 100%;
+  padding: 16px 50px;
+
+  
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 36px;
-  background: rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(14px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+
+  /* PREMIUM PINK GLASS BACKGROUND */
+
+  background: linear-gradient(
+    90deg,
+    #ee4488,
+    #9ca3e2,
+    #f74db8
+  );
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 8px 30px rgba(236,72,153,0.35);
+
+  transition: all 0.4s ease;
+
 }
+
+
+/* ================= BRAND AREA ================= */
 
 .nav-brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  overflow: visible;   /* allows font to render fully */
 }
+
+.navbar {
+  padding: 20px 50px;
+}
+
 
 .logo-icon {
-  height: 36px;
+  height: 40px;
 }
 
+
+/* ================= ANIMATED BRAND TEXT ================= */
 .brand-text {
-  font-size: 20px;
-  font-weight: 800;
+
+  font-family: "Great Vibes", cursive;
+  font-size: 48px;
+
+  line-height: normal;     /* critical fix */
+  display: inline-block;   /* prevents clipping */
+  padding: 6px 0;          /* gives top breathing space */
+ letter-spacing: 1px;
+
   background: linear-gradient(
     90deg,
-    #ec4899,
-    #a855f7,
-    #6366f1,
-    #3b82f6
+    #ffffff,
+    #55089d,
+    #07487e,
+    #040680
   );
+
+  background-size: 300% auto;
+
+  background-clip: text;
   -webkit-background-clip: text;
+
   color: transparent;
+  -webkit-text-fill-color: transparent;
+
+  animation: logoShine 5s linear infinite;
+
+  text-shadow:
+    0 0 10px rgba(255,255,255,0.4);
+
+}
+
+
+/* SHINY TEXT ANIMATION */
+
+@keyframes logoShine {
+  to {
+    background-position: 300% center;
+  }
+}
+
+
+/* ================= NAV LINKS ================= */
+
+.nav-links {
+  display: flex;
+  align-items: center;
 }
 
 .nav-links a {
-  margin-left: 20px;
+
+  margin-left: 32px;
   font-weight: 600;
-  color: white;
+  text-decoration: none;
+
+  /* SAME COLOR TRANSITION AS BRAND TEXT */
+
+  background: linear-gradient(
+    90deg,
+    #ffffff,
+    #3a0470,
+    #ffffff
+  );
+
+  background-size: 200% auto;
+
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+
   position: relative;
+
+  transition: all 0.3s ease;
+
+  animation: linkShine 6s linear infinite;
 }
+
+
+/* TEXT COLOR FLOW ANIMATION */
+
+@keyframes linkShine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+
+/* PREMIUM HOVER EFFECT */
+
+.nav-links a:hover {
+
+  transform: translateY(-3px) scale(1.05);
+
+}
+
+
+/* ELITE UNDERLINE EFFECT */
 
 .nav-links a::after {
+
   content: "";
   position: absolute;
-  width: 0;
+
+  width: 0%;
   height: 2px;
-  background: linear-gradient(90deg, #ec4899, #6366f1);
+
   left: 0;
   bottom: -6px;
-  transition: width 0.3s ease;
+
+  background: white;
+
+  transition: width 0.35s ease;
+
 }
 
-.nav-links a:hover::after {
+.nav-links a:hover::after,
+.nav-links a.active::after {
   width: 100%;
+}
+
+
+/* ================= SCROLL EFFECT (ULTIMATE LOOK) ================= */
+
+.navbar.scrolled {
+
+  padding: 12px 50px;
+
+  background: linear-gradient(
+    90deg,
+    #ff4fa3,
+    #5e48ec
+  );
+
+  box-shadow:
+    0 10px 40px rgba(0,0,0,0.3);
+
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 900px) {
+
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px 20px;
+  }
+
+  .nav-links a {
+    margin-left: 15px;
+  }
+
 }

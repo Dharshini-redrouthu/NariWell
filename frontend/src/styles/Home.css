@@ -4,7 +4,23 @@
   align-items: center;
   gap: 50px;
   margin-top: 30px;
+    position: relative;
+  overflow: hidden;
 }
+
+/* PREMIUM BACKGROUND GLOW */
+.home-hero::before {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #ec489980, transparent 60%);
+  filter: blur(80px);
+  top: -100px;
+  left: -100px;
+  z-index: -1;
+}
+
 
 .home-text {
   flex: 1;
@@ -38,12 +54,66 @@
 .cta {
   margin-top: 28px;
   display: inline-block;
-  padding: 14px 30px;
-  border-radius: 30px;
-  background: linear-gradient(90deg, #ec4899, #6366f1);
+  padding: 14px 32px;
+  border-radius: 40px;
+  background: linear-gradient(90deg,#ec4899,#6366f1);
   color: white;
   font-weight: 600;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+  transition: 0.4s;
+}
+
+.cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(99,102,241,0.4);
+}
+
+/* ================= PREMIUM FEATURES ================= */
+
+.features {
+  margin-top: 80px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+/* FEATURE CARD */
+.feature-card {
+  padding: 32px;
+  border-radius: 24px;
+  text-align: left;
+  transition: 0.3s ease;
+}
+
+/* SEPARATE GLASS STYLE (NO CONFLICT WITH OTHER GLASS) */
+.feature-glass {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.4);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* HOVER EFFECT */
+.feature-glass:hover {
+  transform: translateY(-10px);
+  box-shadow:
+    0 20px 40px rgba(0,0,0,0.15),
+    0 0 20px rgba(236,72,153,0.25);
+}
+
+.feature-card h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+  background: linear-gradient(90deg,#ec4899,#6366f1);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.feature-card p {
+  color: #374151;
+  line-height: 1.6;
 }
 
 /* HERO IMAGE */

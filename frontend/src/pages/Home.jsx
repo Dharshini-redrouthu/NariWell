@@ -36,6 +36,25 @@ export default function Home() {
           <img src={hero} alt="Women health illustration" />
         </div>
       </section>
+{/* PREMIUM FEATURES */}
+<section className="features">
+
+  <div className="feature-card feature-glass">
+    <h3>AI PCOS Prediction</h3>
+    <p>Smart analysis using health indicators to detect risks early.</p>
+  </div>
+
+  <div className="feature-card feature-glass">
+    <h3>Daily Routine Tracking</h3>
+    <p>Healthy habit reminders designed for women's wellness.</p>
+  </div>
+
+  <div className="feature-card feature-glass">
+    <h3>Personalized Insights</h3>
+    <p>AI-driven suggestions for lifestyle and hormonal balance.</p>
+  </div>
+
+</section>
 
       {/* STICKER PREVIEW */}
       <section className="sticker-section">
