@@ -7,29 +7,25 @@
   z-index: 999;
 
   width: 100%;
-  padding: 16px 50px;
 
-  
+  /* REDUCED HEIGHT */
+  padding: 10px 40px;
+
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between;   /* brand left, links right */
   align-items: center;
-
-  /* PREMIUM PINK GLASS BACKGROUND */
 
   background: linear-gradient(
     90deg,
     #ee4488,
-    #9ca3e2,
+    #e29cc4,
     #f74db8
   );
 
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
 
-  box-shadow:
-    0 8px 30px rgba(236,72,153,0.35);
-
-  transition: all 0.4s ease;
+  box-shadow: 0 6px 20px rgba(236,72,153,0.35);
 
 }
 
@@ -39,29 +35,26 @@
 .nav-brand {
   display: flex;
   align-items: center;
-  overflow: visible;   /* allows font to render fully */
+  gap: 8px;
+  overflow: visible;
 }
-
-.navbar {
-  padding: 20px 50px;
-}
-
 
 .logo-icon {
-  height: 40px;
+  height: 32px;   /* smaller = slimmer navbar */
 }
 
 
-/* ================= ANIMATED BRAND TEXT ================= */
+/* ================= GREAT VIBES LOGO ================= */
+
 .brand-text {
 
   font-family: "Great Vibes", cursive;
-  font-size: 48px;
+  font-size: 42px;
 
-  line-height: normal;     /* critical fix */
-  display: inline-block;   /* prevents clipping */
-  padding: 6px 0;          /* gives top breathing space */
- letter-spacing: 1px;
+  line-height: 1.2;     /* prevents tall navbar */
+  padding: 2px 0;
+
+  white-space: nowrap;
 
   background: linear-gradient(
     90deg,
@@ -73,21 +66,17 @@
 
   background-size: 300% auto;
 
-  background-clip: text;
   -webkit-background-clip: text;
+  background-clip: text;
 
   color: transparent;
   -webkit-text-fill-color: transparent;
 
   animation: logoShine 5s linear infinite;
-
-  text-shadow:
-    0 0 10px rgba(255,255,255,0.4);
-
 }
 
 
-/* SHINY TEXT ANIMATION */
+/* SHINY LOGO ANIMATION */
 
 @keyframes logoShine {
   to {
@@ -99,29 +88,30 @@
 /* ================= NAV LINKS ================= */
 
 .nav-links {
+
   display: flex;
   align-items: center;
+
+  gap: 28px;             /* BETTER than margin-left */
+  margin-left: auto;     /* PUSH FULL RIGHT */
 }
 
 .nav-links a {
 
-  margin-left: 32px;
   font-weight: 600;
   text-decoration: none;
 
-  /* SAME COLOR TRANSITION AS BRAND TEXT */
-
   background: linear-gradient(
     90deg,
-    #ffffff,
-    #3a0470,
+    #172dbe,
+    #7128e0,
     #ffffff
   );
 
   background-size: 200% auto;
 
-  background-clip: text;
   -webkit-background-clip: text;
+  background-clip: text;
 
   color: transparent;
   -webkit-text-fill-color: transparent;
@@ -129,12 +119,8 @@
   position: relative;
 
   transition: all 0.3s ease;
-
   animation: linkShine 6s linear infinite;
 }
-
-
-/* TEXT COLOR FLOW ANIMATION */
 
 @keyframes linkShine {
   to {
@@ -143,16 +129,11 @@
 }
 
 
-/* PREMIUM HOVER EFFECT */
+/* PREMIUM HOVER */
 
 .nav-links a:hover {
-
-  transform: translateY(-3px) scale(1.05);
-
+  transform: translateY(-2px);
 }
-
-
-/* ELITE UNDERLINE EFFECT */
 
 .nav-links a::after {
 
@@ -163,35 +144,15 @@
   height: 2px;
 
   left: 0;
-  bottom: -6px;
+  bottom: -4px;
 
   background: white;
-
   transition: width 0.35s ease;
-
 }
 
 .nav-links a:hover::after,
 .nav-links a.active::after {
   width: 100%;
-}
-
-
-/* ================= SCROLL EFFECT (ULTIMATE LOOK) ================= */
-
-.navbar.scrolled {
-
-  padding: 12px 50px;
-
-  background: linear-gradient(
-    90deg,
-    #ff4fa3,
-    #5e48ec
-  );
-
-  box-shadow:
-    0 10px 40px rgba(0,0,0,0.3);
-
 }
 
 
@@ -201,12 +162,8 @@
 
   .navbar {
     flex-direction: column;
-    gap: 10px;
-    padding: 16px 20px;
-  }
-
-  .nav-links a {
-    margin-left: 15px;
+    gap: 8px;
+    padding: 10px 20px;
   }
 
 }

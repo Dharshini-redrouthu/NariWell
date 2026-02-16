@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
-import logoIcon from "../assets/logos/logo2.png";
+import logoIcon from "../assets/logos/logo1.png";
 
 export default function Navbar() {
 
@@ -12,7 +12,7 @@ export default function Navbar() {
       {/* BRAND */}
       <div className="nav-brand">
         <img src={logoIcon} alt="NariWell logo" className="logo-icon" />
-        <h2 className="brand-text">NariWell  </h2>
+<h2 className="brand-text">𝓝𝓪𝓻𝓲𝓦𝓮𝓵𝓵</h2>
         
       </div>
 
@@ -24,7 +24,7 @@ export default function Navbar() {
         <Link className={location.pathname === "/pcos-symptoms" ? "active" : ""} to="/pcos-symptoms">PCOS</Link>
         <Link className={location.pathname === "/contact" ? "active" : ""} to="/contact">Contact</Link>
       </div>
-
+<h2></h2>
     </nav>
   );
 }
