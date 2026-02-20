@@ -1,18 +1,20 @@
-/* ================================
-   Contact Page Container
-================================ */
+/* ======================================================
+   CONTACT PAGE CONTAINER
+====================================================== */
+
 .contact-container {
   max-width: 900px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 70px 20px;
   text-align: center;
   position: relative;
-  overflow: visible;
 }
 
-/* ================================
-   Main Heading (Gradient Text)
-================================ */
+
+/* ======================================================
+   HEADING (PREMIUM GRADIENT)
+====================================================== */
+
 .contact-container h1 {
   font-size: 40px;
   font-weight: 800;
@@ -23,13 +25,11 @@
   color: transparent;
 }
 
-/* ================================
-   Heart Emoji (VISIBLE FIX)
-================================ */
+
+/* HEART ANIMATION */
+
 .heart {
   background: none !important;
-  -webkit-background-clip: initial;
-  background-clip: initial;
   color: #ec4899;
   font-size: 1em;
   margin-left: 6px;
@@ -38,53 +38,52 @@
   animation: pulse 1.8s infinite ease-in-out;
 }
 
-/* Soft heartbeat animation */
 @keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.15);
-  }
-  100% {
-    transform: scale(1);
-  }
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
 }
 
-/* ================================
-   Subtitle
-================================ */
+
+/* ======================================================
+   SUBTITLE
+====================================================== */
+
 .contact-subtitle {
   font-size: 16px;
   color: #6b7280;
-  margin-bottom: 40px;
+  margin-bottom: 45px;
 }
 
-/* ================================
-   Glass Card
-================================ */
+
+/* ======================================================
+   GLASS CONTACT CARD
+====================================================== */
+
 .contact-card {
   max-width: 420px;
   margin: auto;
-  padding: 35px 30px;
+  padding: 36px 30px;
   border-radius: 24px;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255,255,255,0.85);
   backdrop-filter: blur(14px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.12);
+  transition: .3s ease;
 }
 
-/* ================================
-   Card Heading
-================================ */
+.contact-card:hover {
+  transform: translateY(-6px);
+}
+
 .contact-card h3 {
   font-size: 22px;
-  color: #4c1d95; /* deep purple */
+  color: #4c1d95;
   margin-bottom: 12px;
 }
 
-/* ================================
-   Email Link
-================================ */
+
+/* EMAIL LINK */
+
 .contact-card a {
   display: inline-block;
   font-size: 18px;
@@ -92,7 +91,7 @@
   color: #6366f1;
   text-decoration: none;
   margin-bottom: 14px;
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition: .3s;
 }
 
 .contact-card a:hover {
@@ -100,19 +99,51 @@
   transform: scale(1.05);
 }
 
-/* ================================
-   Small Note
-================================ */
 .contact-note {
   font-size: 14px;
   color: #6b7280;
   margin-top: 10px;
 }
 
-/* ================================
-   Mobile Responsive
-================================ */
-@media (max-width: 600px) {
+
+/* ======================================================
+   PREMIUM VIDEO ANIMATION (FIXED ALIGNMENT + NO BLACK SIDES)
+====================================================== */
+
+.contact-animation {
+  margin-top: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Video wrapper (important for clean cropping) */
+
+.contact-animation video {
+  background: transparent;
+  width: 260px;          /* premium balanced size */
+  height: 260px;         /* equal height removes black bars */
+  
+  object-fit: cover;     /* ⭐ MAGIC — crops instead of showing black */
+  object-position: center;
+
+  border-radius: 28px;
+
+  box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+
+  transition: 0.4s ease;
+}
+
+.contact-animation video:hover {
+  transform: scale(1.05);
+}
+
+/* ======================================================
+   MOBILE RESPONSIVE
+====================================================== */
+
+@media (max-width:600px) {
+
   .contact-container h1 {
     font-size: 32px;
   }
@@ -120,4 +151,167 @@
   .contact-card {
     padding: 28px 20px;
   }
+
+  .contact-animation video {
+    width: 240px;
+  }
+
+}
+/* ======================================================
+   FULL WIDTH VIDEO END SECTION (PREMIUM)
+====================================================== */
+
+.contact-video-section {
+  position: relative;
+  width: 100%;
+  height: 80vh;          /* covers desktop nicely */
+  margin-top: 120px;
+  overflow: hidden;
+}
+
+/* FULLSCREEN VIDEO */
+
+.contact-video-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;     /* ⭐ removes black background */
+
+  top: 0;
+  left: 0;
+
+  pointer-events: none;  /* disables picture-in-picture interaction */
+}
+
+/* OVERLAY TEXT */
+
+.visit-again-overlay {
+
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  background: linear-gradient(
+    rgba(0,0,0,0.15),
+    rgba(0,0,0,0.35)
+  );
+}
+
+/* Visit Again Text */
+
+.visit-again-overlay h2 {
+
+  font-size: 56px;
+  font-weight: 800;
+
+  color: white;
+
+  letter-spacing: 1px;
+
+  text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.visit-again-overlay p {
+
+  margin-top: 10px;
+
+  font-size: 20px;
+  color: rgba(255,255,255,0.9);
+}
+/* ======================================================
+   VISIT AGAIN PREMIUM SECTION
+====================================================== */
+
+.visit-section {
+
+  margin-top: 120px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  align-items: center;
+
+  gap: 60px;
+
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+
+  padding: 0 20px;
+}
+
+
+/* VIDEO SIDE */
+
+.visit-video {
+  display: flex;
+  justify-content: center;
+}
+
+.visit-video video {
+
+  width: 100%;
+  max-width: 420px;
+
+  aspect-ratio: 1/1;       /* ⭐ removes black sides */
+  object-fit: cover;       /* crops instead of showing black */
+
+  border-radius: 28px;
+
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+
+
+/* TEXT SIDE */
+
+.visit-text {
+  text-align: left;
+}
+
+.visit-text h2 {
+
+  font-size: 48px;
+  font-weight: 800;
+
+  background: linear-gradient(90deg,#ec4899,#8b5cf6);
+  -webkit-background-clip: text;
+  color: transparent;
+
+  margin-bottom: 14px;
+}
+
+.visit-text p {
+
+  font-size: 18px;
+  color: #6b7280;
+
+  line-height: 1.8;
+
+  max-width: 420px;
+}
+
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width:900px){
+
+  .visit-section {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .visit-text {
+    text-align: center;
+  }
+
 }

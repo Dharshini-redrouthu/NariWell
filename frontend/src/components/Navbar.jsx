@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
-import logoIcon from "../assets/logos/logo1.png";
+import logoIcon from "../assets/logos/logo2.png";
 
 export default function Navbar() {
 
