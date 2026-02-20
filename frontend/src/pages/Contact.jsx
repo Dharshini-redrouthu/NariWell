@@ -45,19 +45,15 @@ export default function Contact() {
 <section className="visit-section">
 
   {/* LEFT SIDE VIDEO */}
-  <div className="visit-video">
+  <video
+  className="premium-video"
+  src={waveVideo}
+  autoPlay
+  loop
+  muted
+  playsInline
+/>
 
-    <video
-      src={waveVideo}
-      autoPlay
-      loop
-      muted
-      playsInline
-      disablePictureInPicture
-      controlsList="nodownload nofullscreen noremoteplayback"
-    />
-
-  </div>
 
 
   {/* RIGHT SIDE TEXT */}
